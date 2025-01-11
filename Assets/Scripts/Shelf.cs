@@ -2,18 +2,19 @@ using UnityEngine;
 
 public class Shelf : MonoBehaviour
 {
-    [SerializeField] private float depth;
-    [SerializeField] private float snapThreshold = 0.5f;
-    public float Depth => depth;
+    [SerializeField] private float _shelfDepth;
+    [SerializeField] private float _snapTreshold = 0.5f;
+
+    public float Depth => _shelfDepth;
 
     public bool TrySnap(Transform item, out Vector3 snapPosition)
     {
-        snapPosition = transform.position;
-        float distance = Mathf.Abs(item.position.z - depth);
+        snapPosition = item.position;
+        float distance = Mathf.Abs(item.position.z - _shelfDepth);
 
-        if (distance <= snapThreshold)
+        if (distance <= _snapTreshold)
         {
-            snapPosition.z = depth;
+            snapPosition.z = _shelfDepth; 
             return true;
         }
         return false;

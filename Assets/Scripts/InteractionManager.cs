@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
-    [SerializeField] private int raycastDistance = 100;
-    [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private int _raycastDistance = 100;
+    [SerializeField] private LayerMask _interactableLayer;
 
-    private InputManager inputManager;
-    private IDraggable currentDraggable;
+    private InputManager _inputManager;
+    private IDraggable _currentDraggable;
 
-    private void Awake() => inputManager = GetComponent<InputManager>();
+    private void Awake() => _inputManager = GetComponent<InputManager>();
 
     private void Update()
     {
@@ -18,28 +18,28 @@ public class InteractionManager : MonoBehaviour
             TryStartDrag();
         else if (Input.GetMouseButtonUp(0))
             EndDrag();
-        else if (currentDraggable != null)
+        else if (_currentDraggable != null)
             UpdateDrag();
     }
 
     private void TryStartDrag()
     {
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, raycastDistance, interactableLayer);
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, _raycastDistance, _interactableLayer);
 
         if (hit.collider != null)
         {
-            currentDraggable = hit.collider.GetComponent<IDraggable>();
-            currentDraggable?.OnStartDrag();
+            _currentDraggable = hit.collider.GetComponent<IDraggable>();
+            _currentDraggable?.OnStartDrag();
         }
     }
 
     private void UpdateDrag() =>
-        currentDraggable?.OnDrag(inputManager.GetWorldPosition());
+        _currentDraggable?.OnDrag(_inputManager.GetWorldPosition());
 
     private void EndDrag()
     {
-        currentDraggable?.OnEndDrag();
-        currentDraggable = null;
+        _currentDraggable?.OnEndDrag();
+        _currentDraggable = null;
     }
 }
