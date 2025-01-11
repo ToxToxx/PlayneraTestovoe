@@ -1,0 +1,8 @@
+E:/PROEKTI/UNITY GAMES/PlayneraTestovoe/.utmp/RelWithDebInfo/v473q93l/arm64-v8a/CMakeFiles/edit_cache.dir
+E:/PROEKTI/UNITY GAMES/PlayneraTestovoe/.utmp/RelWithDebInfo/v473q93l/arm64-v8a/CMakeFiles/rebuild_cache.dir
+E:/PROEKTI/UNITY GAMES/PlayneraTestovoe/.utmp/RelWithDebInfo/v473q93l/arm64-v8a/GameActivity/CMakeFiles/game.dir
+E:/PROEKTI/UNITY GAMES/PlayneraTestovoe/.utmp/RelWithDebInfo/v473q93l/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+E:/PROEKTI/UNITY GAMES/PlayneraTestovoe/.utmp/RelWithDebInfo/v473q93l/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
+E:/PROEKTI/UNITY GAMES/PlayneraTestovoe/.utmp/RelWithDebInfo/v473q93l/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+E:/PROEKTI/UNITY GAMES/PlayneraTestovoe/.utmp/RelWithDebInfo/v473q93l/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+E:/PROEKTI/UNITY GAMES/PlayneraTestovoe/.utmp/RelWithDebInfo/v473q93l/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

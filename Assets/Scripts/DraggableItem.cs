@@ -82,13 +82,13 @@ public class DraggableItem : MonoBehaviour, IDraggable, IPhysicsObject
         if (_currentShelf == null)
         {
             _rb.bodyType = RigidbodyType2D.Dynamic;
-            _rb.velocity = Vector2.zero;
+            _rb.linearVelocity = Vector2.zero;
         }
     }
 
     public void DisablePhysics()
     {
         _rb.bodyType = RigidbodyType2D.Kinematic;
-        _rb.velocity = Vector2.zero;
+        _rb.linearVelocity = Vector2.zero;
     }
 }

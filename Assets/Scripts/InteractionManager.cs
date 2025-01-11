@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
-    [SerializeField] private int _raycastDistance = 100;
+    [SerializeField] private float _raycastDistance = 100f;
     [SerializeField] private LayerMask _interactableLayer;
 
     private InputManager _inputManager;
@@ -14,18 +14,20 @@ public class InteractionManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (_inputManager.IsInputStarted())
             TryStartDrag();
-        else if (Input.GetMouseButtonUp(0))
+        else if (_inputManager.IsInputEnded())
             EndDrag();
-        else if (_currentDraggable != null)
+        else if (_currentDraggable != null && _inputManager.IsInputActive())
             UpdateDrag();
     }
 
     private void TryStartDrag()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero, _raycastDistance, _interactableLayer);
+        Vector3 worldPosition = _inputManager.GetWorldPosition();
+        Vector2 position2D = (Vector2)worldPosition;
+
+        RaycastHit2D hit = Physics2D.Raycast(position2D, Vector2.zero, _raycastDistance, _interactableLayer);
 
         if (hit.collider != null)
         {
